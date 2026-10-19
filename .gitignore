@@ -1,0 +1,17 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+.env*
+public/data/plan.json
+public/documents/
+private-data/
+site/
+qa/
+design-reference/
+.openai/
+AGENTS.md
+scripts/private-server.py
+scripts/test-private-server.py
+scripts/prepare-flight-documents.py
+scripts/import-plan.py
