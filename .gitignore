@@ -4,7 +4,12 @@ test-results/
 playwright-report/
 .env*
 public/data/plan.json
-public/documents/
+public/documents/*
+!public/documents/flight-receipt.pdf
+!public/documents/flight-itinerary-th.pdf
+!public/documents/flight-itinerary-en.pdf
+!public/documents/arrival-card-1.png
+!public/documents/arrival-card-2.png
 private-data/
 site/
 qa/
