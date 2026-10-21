@@ -12,6 +12,7 @@ const sharedDocuments = [
   { id: 'flight-itinerary-th', name: 'แผนการเดินทาง · ภาษาไทย', type: 'application/pdf', path: 'documents/flight-itinerary-th.pdf', group: 'เที่ยวบิน' },
   { id: 'flight-itinerary-en', name: 'แผนการเดินทาง · English', type: 'application/pdf', path: 'documents/flight-itinerary-en.pdf', group: 'เที่ยวบิน' },
   { id: 'hotel-confirmation-en', name: 'ใบยืนยันจองโรงแรม · English', type: 'application/pdf', path: 'documents/hotel-confirmation-en.pdf', group: 'ที่พัก' },
+  { id: 'universal-klook-voucher', name: 'ตั๋ว Universal Studios Beijing · Klook', type: 'application/pdf', path: 'documents/universal-klook-voucher-redacted.pdf', group: 'Universal · 23 ต.ค. · จองแล้ว' },
   { id: 'arrival-card-1', name: 'เอกสาร ตม. · ผู้เดินทาง 1', type: 'image/png', path: 'documents/arrival-card-1.png', group: 'ตม. · ลงทะเบียนแล้ว' },
   { id: 'arrival-card-2', name: 'เอกสาร ตม. · ผู้เดินทาง 2', type: 'image/png', path: 'documents/arrival-card-2.png', group: 'ตม. · ลงทะเบียนแล้ว' },
 ];
@@ -88,7 +89,7 @@ export default function TravelDocuments() {
         <button className="document-open" type="button" onClick={() => setOpened({ name: doc.name, type: doc.type, url: siteAsset(doc.path) })}>{doc.type === 'application/pdf' ? <FileIcon/> : <ImageIcon/>}<span>{doc.name}<small>{doc.group} · {doc.type === 'application/pdf' ? 'PDF' : 'รูปภาพ'}</small></span></button>
         <a className="document-download" href={siteAsset(doc.path)} download aria-label={`ดาวน์โหลด ${doc.name}`} title={`ดาวน์โหลด ${doc.name}`}><DownloadIcon/></a>
       </div>)}</div>
-      <p className="document-privacy public-document-warning">เอกสารเที่ยวบิน ใบยืนยันโรงแรม และผลลงทะเบียน ตม. นี้อยู่บนเว็บสาธารณะ ผู้ที่มีลิงก์สามารถเปิดหรือดาวน์โหลดได้</p>
+      <p className="document-privacy public-document-warning">เอกสารบนเว็บนี้เป็นสาธารณะ ผู้ที่มีลิงก์สามารถเปิดหรือดาวน์โหลดได้ • สำเนาตั๋ว Universal ปิดชื่อ เลขพาสปอร์ต และรหัสจองแล้ว; ต้นฉบับเก็บในแฟ้มเอกสารเดินทางส่วนตัว</p>
       <div className="documents-heading local-documents-heading"><div><small>ON THIS DEVICE ONLY</small><p>ไฟล์ส่วนตัวเพิ่มเติมในเบราว์เซอร์นี้</p></div></div>
       <label className="primary document-add"><PlusIcon/>{busy ? 'กำลังบันทึก…' : 'เพิ่มไฟล์เอกสาร'}<input ref={input} type="file" accept="application/pdf,image/*" multiple disabled={busy} onChange={event => void saveFiles(event.target.files)}/></label>
       {message && <p className="document-message" role="status">{message}</p>}
